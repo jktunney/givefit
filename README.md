@@ -1,4 +1,6 @@
-## Using the "React Starter Kit" to build out our MVP for [givefit.net](givefit.net)
+## Using the "React Starter Kit" to build out our MVP for [givefit.net](https://givefit.net)
+
+## See below for @kriasoft's information on the react web-app generator
 
 ## React Starter Kit — "isomorphic" web app boilerplate
 
