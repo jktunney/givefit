@@ -18,18 +18,13 @@ function Home({ news }, context) {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <h1 className={s.title}>React.js News</h1>
-        <ul className={s.news}>
-          {news.map((item, index) => (
-            <li key={index} className={s.newsItem}>
-              <a href={item.link} className={s.newsTitle}>{item.title}</a>
-              <span
-                className={s.newsDesc}
-                dangerouslySetInnerHTML={{ __html: item.contentSnippet }}
-              />
-            </li>
-          ))}
-        </ul>
+          <h1 className={s.title}>Free Fitness Activities in Baltimore</h1>
+            <normal className="text">Have fun attending these free group fitness classes throughout our lovely city.</normal>       
+              {/*Tockify addin*/}
+              <div data-tockify-maxEvents="8"
+              data-tockify-component="calendar" data-tockify-calendar="jakecalendar"></div>
+              <script data-tockify-script="embed" 
+              src="https://public.tockify.com/browser/embed.js"></script>
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+## Using the "React Starter Kit" to build out our MVP for [givefit.net](givefit.net)
+
 ## React Starter Kit — "isomorphic" web app boilerplate
 
 > [React Starter Kit](https://www.reactstarterkit.com) is an opinionated
