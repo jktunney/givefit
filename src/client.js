@@ -13,6 +13,7 @@ import FastClick from 'fastclick';
 import UniversalRouter from 'universal-router';
 import routes from './routes';
 import history from './core/history';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import { readState, saveState } from 'history/lib/DOMStateStorage';
 import {
   addEventListener,
@@ -20,6 +21,13 @@ import {
   windowScrollX,
   windowScrollY,
 } from './core/DOMUtils';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+// Needed for onTouchTap
+// Check this repo:
+// https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin();
 
 const context = {
   insertCss: (...styles) => {

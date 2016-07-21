@@ -15,7 +15,7 @@ export default {
 
   path: '*',
 
-  async action({ path }) { // eslint-disable-line react/prop-types
+  async action() {
     const resp = await fetch('/graphql', {
       method: 'post',
       headers: {
@@ -23,14 +23,13 @@ export default {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        query: `{content(path:"${path}"){path,title,content,component}}`,
+        query: '{workouts{title,date,time,location,author,contentSnippet,tags,day,image}}',
       }),
       credentials: 'include',
     });
-    if (resp.status !== 200) throw new Error(resp.statusText);
     const { data } = await resp.json();
-    if (!data || !data.content) return undefined;
-    return <Content {...data.content} />;
+    if (!data || !data.workouts) throw new Error('Failed to load the news feed.');
+    return <Content workouts={data.workouts} />;
   },
 
 };

@@ -13,6 +13,8 @@ import s from './App.css';
 import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
+import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class App extends Component {
 
@@ -30,6 +32,7 @@ class App extends Component {
     insertCss: PropTypes.func.isRequired,
     setTitle: PropTypes.func.isRequired,
     setMeta: PropTypes.func.isRequired,
+    muiTheme: PropTypes.object.isRequired,
   };
 
   getChildContext() {
@@ -38,6 +41,7 @@ class App extends Component {
       insertCss: context.insertCss || emptyFunction,
       setTitle: context.setTitle || emptyFunction,
       setMeta: context.setMeta || emptyFunction,
+      muiTheme: getMuiTheme(baseTheme),
     };
   }
 
@@ -51,6 +55,8 @@ class App extends Component {
   }
 
   render() {
+    console.log("children")
+    console.log(this.props.children);
     return !this.props.error ? (
       <div>
         <Header />
@@ -63,4 +69,8 @@ class App extends Component {
 
 }
 
+
 export default App;
+
+/*app has props data??
+props.children has the news object*/

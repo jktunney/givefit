@@ -18,6 +18,8 @@ import register from './register';
 import content from './content';
 import error from './error';
 
+
+
 export default {
 
   path: '/',
