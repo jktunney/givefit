@@ -9,7 +9,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Content.css';
+/*import s from './Content.css';*/
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
@@ -33,12 +33,11 @@ const title = 'React Starter Kit';
 
 
 function Home({ workouts }, context) {
-  context.setTitle(title);
   return (
-    <div className={s.root}>
-      <div className={s.container}>
-        <h1 className={s.title}>React.js News</h1>
-        <ul className={s.news}> 
+    <div>
+      <div>
+        <h1>Workout groups</h1>
+        <ul> 
           {workouts.map((item, index) => (
                <GridTile
                   key={item.image}
@@ -63,11 +62,10 @@ Home.propTypes = {
     location: PropTypes.string,
     author: PropTypes.string,
     contentSnippet: PropTypes.string,
-    tags: PropTypes.string,
+    tags: PropTypes.array,
     day: PropTypes.string,
     image: PropTypes.string,
   })).isRequired,
 };
-Home.contextTypes = { setTitle: PropTypes.func.isRequired };
 
-export default withStyles(s)(Home);
+export default Home;
