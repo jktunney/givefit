@@ -16,6 +16,8 @@ const WorkoutType = new ObjectType({
     tags: { type: StringType },
     day: { type: StringType },
     image: { type: StringType},
+    avatar: { type: StringType},
+    id: { type: StringType},
   },
 });
 

@@ -9,39 +9,58 @@
 
 import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Home.css';
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import Subheader from 'material-ui/Subheader';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import CardExampleWithAvatar from './subComponents/Card';
 
-const title = 'React Starter Kit';
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    width: 600,
+    height: 1200,
+    cols: 1,
+    padding: 10,
+    overflowY: 'auto',
+    marginBottom: 24,
+  },
+};
 
-function Home({ news }, context) {
-  context.setTitle(title);
+function Home({ workouts }, context) {
   return (
-    <div className={s.root}>
-      <div className={s.container}>
-        <h1 className={s.title}>React.js News</h1>
-        <ul className={s.news}>
-          {news.map((item, index) => (
-            <li key={index} className={s.newsItem}>
-              <a href={item.link} className={s.newsTitle}>{item.title}</a>
-              <span
-                className={s.newsDesc}
-                dangerouslySetInnerHTML={{ __html: item.contentSnippet }}
-              />
-            </li>
+      <div>  
+        <ul>
+          {workouts.map((item, index) => (
+               <CardExampleWithAvatar 
+                  key={index}
+                  data={item}
+               />
           ))}
         </ul>
       </div>
-    </div>
+        
   );
 }
 
 Home.propTypes = {
-  news: PropTypes.arrayOf(PropTypes.shape({
+  workouts: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
+    date: PropTypes.string,
+    time: PropTypes.string.isRequired,
+    location: PropTypes.string,
+    author: PropTypes.string,
     contentSnippet: PropTypes.string,
+    tags: PropTypes.string,
+    day: PropTypes.string,
+    image: PropTypes.string,
+    avatar: PropTypes.string,
+    id: PropTypes.string,
   })).isRequired,
 };
-Home.contextTypes = { setTitle: PropTypes.func.isRequired };
 
-export default withStyles(s)(Home);
+export default Home;

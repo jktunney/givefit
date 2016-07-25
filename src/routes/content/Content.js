@@ -37,19 +37,8 @@ function Home({ workouts }, context) {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <h1 className={s.title}>React.js News</h1>
-        <ul className={s.news}> 
-          {workouts.map((item, index) => (
-               <GridTile
-                  key={item.image}
-                  title={item.title}
-                  subtitle={<span>by <b>{item.author}</b></span>}
-                  actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-                >
-                  <img src={item.image} />
-                </GridTile>
-          ))}
-        </ul>
+        <h1 className={s.title}>About us</h1>
+          We're working to make being active more accessible for humanity.
       </div>
     </div>
   );
