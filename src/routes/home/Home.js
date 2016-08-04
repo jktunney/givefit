@@ -9,10 +9,11 @@
 
 import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import GridList from 'material-ui/GridList'
+
 import MainFeed from './subComponents/MainFeed';
 
 const styles = {
@@ -22,10 +23,8 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 600,
-    height: 1200,
-    cols: 1,
-    padding: 10,
+    width: 500,
+    height: 500,
     overflowY: 'auto',
     marginBottom: 24,
   },
@@ -34,14 +33,19 @@ const styles = {
 function Home({ workouts }, context) {
   return (
       <div>  
-        <ul>
+       <GridList
+          style={styles.gridList}
+          cols={1}
+          cellHeight={500}
+          padding={1}
+        >
           {workouts.map((item, index) => (
                <MainFeed 
                   key={index}
                   data={item}
                />
           ))}
-        </ul>
+        </GridList>
       </div>
         
   );
@@ -62,5 +66,4 @@ Home.propTypes = {
     id: PropTypes.string,
   })).isRequired,
 };
-
 export default Home;
